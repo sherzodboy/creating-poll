@@ -27,7 +27,7 @@ body {
   /* gap: 20px; */
   text-align: center;
 }
-.question-list {
+.entered-question {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -64,6 +64,7 @@ body {
 }
 .item input {
   border: none;
+  font-size: 17px;
 }
 .item input:focus {
   border: none;
@@ -74,6 +75,10 @@ body {
   font-weight: 500;
   color: #111;
   letter-spacing: 1px;
+}
+.item.completed input {
+  text-decoration: line-through;
+  color: #777;
 }
 .item-btn {
   display: flex;
