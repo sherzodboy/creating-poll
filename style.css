@@ -14,6 +14,10 @@ body {
   width: 100vw;
 }
 
+body.pink {
+  background-color: #ECC0D9;
+}
+
 .poll-list {
   width: 450px;
   padding: 20px;
@@ -21,10 +25,10 @@ body {
   border-radius: 5px;
   background-color: #fff;
 }
+.poll-list.hidden {
+  display: none;
+}
 .poll-head {
-  /* display: grid; */
-  /* grid-template-columns: 4fr 1fr; */
-  /* gap: 20px; */
   text-align: center;
 }
 .entered-question {
@@ -89,4 +93,76 @@ body {
 .item-btn i {
   color: navy;
   font-size: 18px;
+}
+
+.poll-radios {
+  display: none;
+  background-color: #F9F4FA;
+  width: 80%;
+  /* height: 80%; */
+  border-radius: 10px;
+  border: 1px solid #000;
+  padding: 40px;
+}
+.poll-radios.hidden {
+  display: block;
+}
+
+.poll-header {
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: cursive;
+  font-size: 30px;
+  color: navy;
+}
+
+.poll-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.option {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px 30px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.option:hover {
+  background-color: rgb(218, 214, 214);
+}
+
+.option:focus {
+  border: 1px solid navy;
+}
+
+.option-input {
+  transform: scale(2);
+  margin-right: 50px;
+}
+
+.option-text {
+  font-weight: 700;
+  font-size: 22px;
+  font-family: monospace;
+}
+
+.option-vote {
+  text-align: center;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 15px;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+.option-vote:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }

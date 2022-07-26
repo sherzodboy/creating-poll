@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
-<body>
+<body class="body">
   
 
   <form class="poll-list">
@@ -48,20 +48,36 @@
       </div>
     </div>
 
-    <button class="add-list">Create poll</button>
+    <button type="button" class="add-list">Create poll</button>
 
   </form>
 
+
+  <form class="poll-radios">
+    <h2 class="poll-header">What is your name?</h2>
+    <div class="poll-options">
+      <div class="option">
+        <input type="radio" class="option-input" name="radio" required>
+        <p class="option-text">Ali</p>
+      </div>
+      <div class="option">
+        <input type="radio" class="option-input" name="radio" required>
+        <p class="option-text">Ali</p>
+      </div>
+      <div class="option">
+        <input type="radio" class="option-input" name="radio" required>
+        <p class="option-text">Ali</p>
+      </div>
+      <div class="option">
+        <input type="radio" class="option-input" name="radio" required>
+        <p class="option-text">Ali</p>
+      </div>
+    </div>
+
+      <button type="button" class="option-vote">Vote</button>
+  </form>
   
-  
-  
-  
-  
-  
-  
-  
-  
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
