@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
 }
+
 body {
   font-family: sans-serif;
   font-weight: bold;
@@ -165,4 +166,7 @@ body.pink {
 .option-vote:hover {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   cursor: pointer;
+}
+.option.aaa {
+  display: none;
 }
