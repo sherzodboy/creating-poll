@@ -5,14 +5,13 @@
 }
 
 body {
+  padding: 50px 0;
   font-family: sans-serif;
   font-weight: bold;
   background-color: silver;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
+  align-items: center; 
 }
 
 body.pink {
@@ -43,11 +42,12 @@ body.pink {
 .add-list {
   border: none;
   border-radius: 5px;
-  background-color: navy;
+  background-color: greenyellow;
   outline: none;
   font-size: 18px;
   letter-spacing: 1px;
-  color: #fff;
+  color: #000;
+  font-weight: bold;
   cursor: pointer;
   width: 100%;
   padding: 10px;
@@ -67,6 +67,14 @@ body.pink {
   font-size: 18px;
   margin: 20px auto;
 }
+.fa-plus {
+  margin-bottom: 18px;
+  margin-right: 50px;
+  color: #000;
+  font-size: 23px;
+  float: right;
+  cursor: pointer;
+}
 .item input {
   border: none;
   font-size: 17px;
@@ -74,6 +82,13 @@ body.pink {
 .item input:focus {
   border: none;
   outline: none;
+}
+.item.click {
+  border: 2px solid rgb(135, 226, 15);
+}
+.answerinput.click {
+  color: rgb(135, 226, 15);
+  font-weight: bold;
 }
 .option {
   font-size: 16px;
@@ -91,8 +106,13 @@ body.pink {
   gap: 10px;
   cursor: pointer;
 }
-.item-btn i {
-  color: navy;
+.fa-pen {
+  color: rgb(8, 95, 8);
+  font-size: 18px;
+}
+
+.fa-trash {
+  color: red;
   font-size: 18px;
 }
 
@@ -121,7 +141,6 @@ body.pink {
   display: flex;
   flex-direction: column;
 }
-
 .option {
   display: flex;
   justify-content: flex-start;

@@ -1,6 +1,7 @@
 "use strict";
 
 const tasks = document.querySelector(".tasks");
+const item = document.querySelector(".item");
 const pollList = document.querySelector(".poll-list");
 const createPoll = document.querySelector(".add-list");
 const pollRadios = document.querySelector(".poll-radios");
@@ -8,53 +9,56 @@ const body = document.querySelector(".body");
 const enteredQuestion = document.querySelector(".entered-question");
 const pollHeader = document.querySelector(".poll-header");
 const answerInput = document.querySelectorAll(".answerinput");
-const answerInputOne = document.querySelector(".answerinputone");
-const answerInputTwo = document.querySelector(".answerinputtwo");
-const answerInputThree = document.querySelector(".answerinputthree");
-const answerInputFour = document.querySelector(".answerinputfour");
 const optionText = document.querySelectorAll(".option-text");
-const optionTextOne = document.querySelector(".optiontextone");
-const optionTextTwo = document.querySelector(".optiontexttwo");
-const optionTextThree = document.querySelector(".optiontextthree");
-const optionTextFour = document.querySelector(".optiontextfour");
+const addAnswer = document.querySelector(".fa-plus");
 
 // delete item from list
 tasks.addEventListener("click", (e) => {
-  if (e.target.classList.contains("fa-xmark")) {
+  if (e.target.classList.contains("fa-trash")) {
     e.target.parentElement.parentElement.remove();
   }
 });
 
-//  mark item as completed
-tasks.addEventListener("click", (e) => {
-  if (e.target.classList.contains("fa-pen-to-square")) {
-    e.target.parentElement.parentElement.classList.toggle("completed");
-  }
+tasks.innerHTML = ` 
+  <div class="item">
+    <input type="text" class="answerinput" placeholder="type your answer here" required>
+    <div class="item-btn">
+      <i class="fa-solid fa-trash"></i>
+    </div>
+  </div>
+
+  <div class="item">
+    <input type="text" class="answerinput" placeholder="type your answer here" required>
+    <div class="item-btn">
+      <i class="fa-solid fa-trash"></i>
+    </div>
+  </div>
+`;
+
+addAnswer.addEventListener("click", () => {
+  const addAnswerAgain = document.createElement("div");
+  addAnswerAgain.classList.add("item");
+  addAnswerAgain.innerHTML = `
+  <input type="text" class="answerinput" placeholder="type your answer here" required>
+  <div class="item-btn">
+    <i class="fa-solid fa-trash"></i>
+  </div>
+  `;
+  tasks.appendChild(addAnswerAgain);
 });
 
 createPoll.addEventListener("click", () => {
   if (enteredQuestion.value === "") {
     alert("Type your question here");
-  } else if (
-    answerInputOne.value === "" ||
-    answerInputTwo.value === "" ||
-    answerInputThree.value === "" ||
-    answerInputFour.value === ""
-    // (answerInput.values = "")
-  ) {
+  } else if (answerInput.values === "") {
     alert("Type your answer here completely");
   } else {
-    pollHeader.innerHTML = enteredQuestion.value;
-    optionTextOne.innerHTML = answerInputOne.value;
-    optionTextTwo.innerHTML = answerInputTwo.value;
-    optionTextThree.innerHTML = answerInputThree.value;
-    optionTextFour.innerHTML = answerInputFour.value;
     updateInput();
   }
 });
 
-// realize inputs
 function updateInput() {
+  pollHeader.innerHTML = enteredQuestion.value;
   setTimeout(() => {
     pollList.classList.add("hidden");
     pollRadios.classList.add("hidden");
