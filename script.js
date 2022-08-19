@@ -1,7 +1,7 @@
 "use strict";
 
 const tasks = document.querySelector(".tasks");
-const item = document.querySelector(".item");
+// const item = document.querySelector(".item");
 const pollList = document.querySelector(".poll-list");
 const createPoll = document.querySelector(".add-list");
 const pollRadios = document.querySelector(".poll-radios");
@@ -11,6 +11,7 @@ const pollHeader = document.querySelector(".poll-header");
 const answerInput = document.querySelectorAll(".answerinput");
 const optionText = document.querySelector(".option-text");
 const addAnswer = document.querySelector(".fa-plus");
+const pollOptions = document.querySelectorAll(".poll-options");
 
 // delete item from list
 tasks.addEventListener("click", (e) => {
@@ -43,18 +44,36 @@ createPoll.addEventListener("click", () => {
 
 function updateInput() {
   pollHeader.innerHTML = enteredQuestion.value;
-  // console.log(answerInput[0].value, "answer");
+
+  const pollOptions = document.querySelector(".poll-options");
+  pollOptions.innerHTML = `
+    <div class="option">
+      <input type="radio" class="option-input" name="radio" required>
+      <p class="option-text"></p>
+    </div>
+  `;
+
   const a = document.querySelectorAll(".item");
 
+  let values = [];
+
   a.forEach((element) => {
-    console.log(element.firstChild.nextSibling.value);
-    // optionText.innerHTML = element.firstChild.nextSibling.value;
+    values.push(element.firstChild.nextSibling.value);
+    console.log(values);
   });
   setTimeout(() => {
     pollList.classList.add("hidden");
     pollRadios.classList.add("hidden");
     body.classList.add("pink");
   }, 300);
+}
 
-  // const a = document.querySelectorAll(".item");
+function optionFunc() {
+  const pollOptions = document.querySelector(".poll-options");
+  pollOptions.innerHTML = `
+    <div class="option">
+      <input type="radio" class="option-input" name="radio" required>
+      <p class="option-text"></p>
+    </div>
+  `;
 }
