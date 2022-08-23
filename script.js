@@ -9,7 +9,7 @@ const body = document.querySelector(".body");
 const enteredQuestion = document.querySelector(".entered-question");
 const pollHeader = document.querySelector(".poll-header");
 const answerInput = document.querySelectorAll(".answerinput");
-const optionText = document.querySelector(".option-text");
+// const optionText = document.querySelector(".option-text");
 const addAnswer = document.querySelector(".fa-plus");
 const pollOptions = document.querySelectorAll(".poll-options");
 
@@ -46,12 +46,12 @@ function updateInput() {
   pollHeader.innerHTML = enteredQuestion.value;
 
   const pollOptions = document.querySelector(".poll-options");
-  pollOptions.innerHTML = `
-    <div class="option">
-      <input type="radio" class="option-input" name="radio" required>
-      <p class="option-text"></p>
-    </div>
-  `;
+  // pollOptions.innerHTML = `
+  //   <div class="option">
+  //     // {/* <input type="radio" class="option-input" name="radio" required> */}
+  //     <p class="option-text"></p>
+  //   </div>
+  // `;
 
   const a = document.querySelectorAll(".item");
 
@@ -59,21 +59,28 @@ function updateInput() {
 
   a.forEach((element) => {
     values.push(element.firstChild.nextSibling.value);
+    // const optionText = document.querySelector(".option-text");
     console.log(values);
+    // optionText.innerHTML = values;
+  });
+
+  values.forEach(function (value) {
+    const option = document.createElement("div");
+    option.classList.add("option");
+    const input = document.createElement("input");
+    input.classList.add("option-input");
+    input.type = "radio";
+    input.name = "radio";
+    const p = document.createElement("p");
+    p.classList.add("option.text");
+    option.appendChild(input);
+    option.appendChild(p);
+    p.innerHTML = value;
+    pollOptions.appendChild(option);
   });
   setTimeout(() => {
     pollList.classList.add("hidden");
     pollRadios.classList.add("hidden");
     body.classList.add("pink");
   }, 300);
-}
-
-function optionFunc() {
-  const pollOptions = document.querySelector(".poll-options");
-  pollOptions.innerHTML = `
-    <div class="option">
-      <input type="radio" class="option-input" name="radio" required>
-      <p class="option-text"></p>
-    </div>
-  `;
 }
