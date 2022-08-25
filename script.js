@@ -1,7 +1,6 @@
 "use strict";
 
 const tasks = document.querySelector(".tasks");
-// const item = document.querySelector(".item");
 const pollList = document.querySelector(".poll-list");
 const createPoll = document.querySelector(".add-list");
 const pollRadios = document.querySelector(".poll-radios");
@@ -9,9 +8,10 @@ const body = document.querySelector(".body");
 const enteredQuestion = document.querySelector(".entered-question");
 const pollHeader = document.querySelector(".poll-header");
 const answerInput = document.querySelectorAll(".answerinput");
-// const optionText = document.querySelector(".option-text");
 const addAnswer = document.querySelector(".fa-plus");
 const pollOptions = document.querySelectorAll(".poll-options");
+const optionVote = document.querySelector(".option-vote");
+const endAnswer = document.querySelector(".answer");
 
 // delete item from list
 tasks.addEventListener("click", (e) => {
@@ -42,26 +42,30 @@ createPoll.addEventListener("click", () => {
   }
 });
 
+optionVote.addEventListener("click", () => {
+  const optionInput = document.querySelectorAll(".option-input");
+
+  optionInput.forEach((optIn) => {
+    const answer = document.querySelector(".answer");
+    if (optIn.checked === true) {
+      pollRadios.classList.add("none");
+      endAnswer.classList.add("block");
+      answer.innerHTML = optIn.nextElementSibling.textContent;
+    }
+  });
+});
+
 function updateInput() {
   pollHeader.innerHTML = enteredQuestion.value;
 
   const pollOptions = document.querySelector(".poll-options");
-  // pollOptions.innerHTML = `
-  //   <div class="option">
-  //     // {/* <input type="radio" class="option-input" name="radio" required> */}
-  //     <p class="option-text"></p>
-  //   </div>
-  // `;
-
   const a = document.querySelectorAll(".item");
 
   let values = [];
 
   a.forEach((element) => {
     values.push(element.firstChild.nextSibling.value);
-    // const optionText = document.querySelector(".option-text");
     console.log(values);
-    // optionText.innerHTML = values;
   });
 
   values.forEach(function (value) {
@@ -78,6 +82,7 @@ function updateInput() {
     p.innerHTML = value;
     pollOptions.appendChild(option);
   });
+
   setTimeout(() => {
     pollList.classList.add("hidden");
     pollRadios.classList.add("hidden");
